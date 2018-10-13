@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Accounts</string>
+    <string name="currency_icon">Currency icon</string>
+    <string name="tools_account_title_stub">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Aenean nibh velit, pretium eget eleifend sagittis, tristique ac quam. Cras et bibendum mauris.</string>
+    <string name="tools_account_amount_stub">593834934.95</string>
 </resources>

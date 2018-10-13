@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rub_card_view"
+    style="@style/AccountCardView">
+
+    <android.support.constraint.ConstraintLayout style="@style/AccountCardConstraintLayout">
+
+        <ImageView
+            android:id="@+id/currency_icon_card_view"
+            style="@style/AccountCurrencyIconCard"
+            android:contentDescription="@string/currency_icon"
+            card_view:layout_constraintBottom_toBottomOf="@+id/title_card_view"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/title_card_view"
+            card_view:srcCompat="@drawable/ic_currency_rub" />
+
+        <TextView
+            android:id="@+id/title_card_view"
+            style="@style/AccountTitleTextCard"
+            android:layout_margin="8dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toStartOf="@+id/amount_card_view"
+            card_view:layout_constraintStart_toEndOf="@+id/currency_icon_card_view"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/tools_account_title_stub" />
+
+        <TextView
+            android:id="@+id/amount_card_view"
+            style="@style/AccountAmountTextCard"
+            card_view:layout_constraintBottom_toBottomOf="@+id/title_card_view"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/title_card_view"
+            tools:text="@string/tools_account_amount_stub" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
