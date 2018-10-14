@@ -16,7 +16,7 @@
             card_view:layout_constraintBottom_toBottomOf="@+id/title_card_view"
             card_view:layout_constraintEnd_toStartOf="@+id/amount_card_view"
             card_view:layout_constraintTop_toTopOf="@+id/title_card_view"
-            card_view:srcCompat="@drawable/ic_currency_usd" />
+            tools:srcCompat="@drawable/ic_currency_usd" />
 
         <TextView
             android:id="@+id/title_card_view"
