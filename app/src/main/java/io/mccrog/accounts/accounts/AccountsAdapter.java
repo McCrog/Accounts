@@ -13,7 +13,7 @@ import java.util.List;
 
 import io.mccrog.accounts.R;
 import io.mccrog.accounts.model.CurrencyAccount;
-import io.mccrog.accounts.model.CurrencyType;
+import io.mccrog.accounts.utilities.Constants;
 
 public class AccountsAdapter extends RecyclerView.Adapter<AccountsAdapter.AccountViewHolder> {
 
@@ -28,13 +28,13 @@ public class AccountsAdapter extends RecyclerView.Adapter<AccountsAdapter.Accoun
     public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View itemView;
         switch (viewType) {
-            case 0:
+            case Constants.VIEW_TYPE_IMAGE_TITLE_AMOUNT:
                 itemView = getView(viewGroup, R.layout.item_account_rub);
                 break;
-            case 1:
+            case Constants.VIEW_TYPE_TITLE_IMAGE_AMOUNT:
                 itemView = getView(viewGroup, R.layout.item_account_eur);
                 break;
-            case 2:
+            case Constants.VIEW_TYPE_TITLE_AMOUNT_IMAGE:
                 itemView = getView(viewGroup, R.layout.item_account_usd);
                 break;
             default:
@@ -49,21 +49,7 @@ public class AccountsAdapter extends RecyclerView.Adapter<AccountsAdapter.Accoun
 
         accountViewHolder.title.setText(currencyAccount.getTitle());
         accountViewHolder.amount.setText(String.valueOf(currencyAccount.getAmount()));
-
-        CurrencyType currencyType = currencyAccount.getCurrencyType();
-        switch (currencyType) {
-            case RUB:
-                accountViewHolder.currencyIcon.setImageResource(R.drawable.ic_currency_rub);
-                break;
-            case EUR:
-                accountViewHolder.currencyIcon.setImageResource(R.drawable.ic_currency_eur);
-                break;
-            case USD:
-                accountViewHolder.currencyIcon.setImageResource(R.drawable.ic_currency_usd);
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown CurrencyType: " + currencyType);
-        }
+        accountViewHolder.currencyIcon.setImageResource(currencyAccount.getCurrencyType().getDrawableId());
     }
 
     @Override
@@ -73,7 +59,7 @@ public class AccountsAdapter extends RecyclerView.Adapter<AccountsAdapter.Accoun
 
     @Override
     public int getItemViewType(int position) {
-        return mCurrencyAccounts.get(position).getCurrencyType().ordinal();
+        return mCurrencyAccounts.get(position).getCurrencyType().getViewType();
     }
 
     public void setData(List<CurrencyAccount> newCurrencyAccounts) {

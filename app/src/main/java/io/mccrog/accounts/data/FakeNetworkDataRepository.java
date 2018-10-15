@@ -14,7 +14,7 @@ import io.reactivex.Flowable;
 
 public class FakeNetworkDataRepository {
 
-    private static final int SIZE = 100;
+    private static final int SIZE = 20;
 
     private static FakeNetworkDataRepository sInstance = null;
 
@@ -37,7 +37,6 @@ public class FakeNetworkDataRepository {
      */
     public Flowable<List<CurrencyAccount>> getAllCurrencyAccounts() {
         List<CurrencyAccount> currencyAccounts = generateNewRandomCurrencyAccountsList(SIZE);
-        Collections.sort(currencyAccounts, (ca1, ca2) -> Integer.compare(ca1.getCurrencyType().ordinal(), ca2.getCurrencyType().ordinal()));
         return Flowable.fromCallable(() -> currencyAccounts);
     }
 
@@ -67,6 +66,8 @@ public class FakeNetworkDataRepository {
                 currencyType = CurrencyType.values()[random.nextInt(CurrencyType.values().length)];
                 mCurrencyAccounts.add(new CurrencyAccount(id, title, amount, currencyType));
             }
+
+            Collections.sort(mCurrencyAccounts, (ca1, ca2) -> Integer.compare(ca1.getCurrencyType().ordinal(), ca2.getCurrencyType().ordinal()));
         }
 
         return mCurrencyAccounts;
