@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import io.mccrog.accounts.R;
+import io.mccrog.accounts.accounts.adapter.AccountsAdapter;
 import io.mccrog.accounts.model.CurrencyAccount;
 
 public class AccountsActivity extends AppCompatActivity implements AccountsContract.View {

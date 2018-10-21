@@ -8,8 +8,9 @@ import io.mccrog.accounts.utilities.Constants;
  */
 public enum CurrencyType {
     RUB(R.drawable.ic_currency_rub, Constants.VIEW_TYPE_IMAGE_TITLE_AMOUNT),
-    EUR(R.drawable.ic_currency_eur, Constants.VIEW_TYPE_TITLE_IMAGE_AMOUNT),
-    USD(R.drawable.ic_currency_usd, Constants.VIEW_TYPE_TITLE_AMOUNT_IMAGE);
+    USD(R.drawable.ic_currency_usd, Constants.VIEW_TYPE_TITLE_IMAGE_AMOUNT),
+    EUR(R.drawable.ic_currency_eur, Constants.VIEW_TYPE_TITLE_AMOUNT_IMAGE),
+    CORONA(0, Constants.VIEW_TYPE_TITLE_AMOUNT);
 
     private final int drawableId;
     private final int viewType;
